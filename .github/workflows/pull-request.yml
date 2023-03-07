@@ -16,7 +16,6 @@ jobs:
         uses: n1hility/cancel-previous-runs@v3
         with: 
           token: ${{ secrets.GITHUB_TOKEN }}
-
       - uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: latest-stable
