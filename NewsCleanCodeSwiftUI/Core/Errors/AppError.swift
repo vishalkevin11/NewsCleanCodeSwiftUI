@@ -29,11 +29,6 @@ enum AppError: Error, LocalizedError {
     }
 }
 
-//extension AppError: LocalizedError {
-//   
-//}
-
-
 typealias HTTPCode = Int
 typealias HTTPCodes = Range<HTTPCode>
 
