@@ -1,12 +1,9 @@
-# This workflow will build a Swift project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
-
 name: Pull Request
 
 on:
   pull_request:
     branches:
-      - develop
+      - main
   workflow_dispatch:
 
 jobs:
@@ -41,4 +38,11 @@ jobs:
             Build/Build/Products
           key: ${{ runner.os }}-deps-v1-${{ hashFiles('BILDsolid.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
           restore-keys: ${{ runner.os }}-deps-v1-
-      run: swift test -v
+
+      - name: Run Tests (No Cache)
+        if: steps.setup.outputs.cache-hit != 'true'
+        run: bundle exec fastlane unit_test
+      
+      - name: Run Tests (Cache)
+        if: steps.setup.outputs.cache-hit == 'true'
+        run: bundle exec fastlane unit_test skip_package_dependencies_resolution:true
