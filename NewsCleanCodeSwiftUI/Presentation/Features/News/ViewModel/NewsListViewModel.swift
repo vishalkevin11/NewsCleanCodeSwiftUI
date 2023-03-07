@@ -18,6 +18,8 @@ typealias DisposeBag = Set<AnyCancellable>
 //    }
 //}
 
+
+
 enum NewsResultState {
     case initalState
     case loadingNews
