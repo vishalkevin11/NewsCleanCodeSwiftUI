@@ -30,8 +30,6 @@ jobs:
 
       - name: Install gems
         run: bundle install
-      - name: Install bundle lock
-        run: bundle lock --add-platform x86_64-darwin-19
 
       - name: Swift Packages Cache
         uses: actions/cache@v2
