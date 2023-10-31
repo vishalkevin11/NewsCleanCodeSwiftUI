@@ -45,7 +45,7 @@ class NewsListViewModel: ObservableObject {
     
     func getAllNews() {
         newsResultState = .loadingNews
-        newsUsecase.getAllNews(forQuery: "world")
+        newsUsecase.getAllNews(forQuery: "chandler bing")
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
